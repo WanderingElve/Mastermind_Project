@@ -1,0 +1,139 @@
+Michelle Livojevic SN:1415213
+Aaron Wang SN: 1504533
+
+Final Project: Master Mind (Arduino Style)
+Collaborations:
+
+Some functions used for the the handshaking procedure
+use Assignment 1 code created by Prof. Zachary Friggstad namely:
+Wait_on_Serial3, uint32_to_Serial3, and uint32_from_Serial3.
+An adapted version of these functions is used in this code.
+
+
+Accessories:
+
+Arduino Mega 2560 Board
+
+Adafruit ILI934 breakout board
+
+Joystick
+
+Pushbutton
+
+
+
+
+Wiring Instructions:
+
+Adafruit ILI934 breakout board:
+
+
+Adafruit ILI934 GND<->Arduino Gnd
+
+Adafruit ILI934 Vin<->Arduino 5V
+
+Adafruit ILI934 CLK<->Arduino pin 52
+
+Adafruit ILI934 MISO<->Arduino pin 50
+
+Adafruit ILI934 MOSI<->Arduino pin 51
+
+Adafruit ILI934 CS<-> Arduino  pin 10
+
+Adafruit ILI934 D/C<->Arduino pin 9
+
+Adafruit ILI934 Y+<-> Arduino Analog pin A2
+
+Adafruit ILI934 X+<-> Arduino pin 4
+
+Adafruit ILI934 Y-<-> Arduino pin 5
+
+Adafruit ILI934 X-<-> Arduino Analog pin A3
+
+Adafruit ILI934 CCS<-> Arduino pin 6
+
+
+Joystick:
+
+
+GND<->Arduino GND
+
++5V<->Arduino 5V
+
+VRx<->Arduino Analog pin A1
+
+VRy<->Arduino Analog pin A0
+
+SW<->Arduino pin 2
+
+Pushbutton:
+
+
+Arduino pin 12 <--> Pushbutton
+
+Pushbutton <--> GND
+
+Server/Client:
+
+NOTE: for two player mode always check that you
+      have properly wired the transmission and receiving pins
+
+Arduino0 TX3 <--> Arduino1 RX3
+Arduino1 RX3 <--> Arduino0 TX3
+
+If the wired Arduino is the server
+
+Arduino pin 13 <--> Arduino 5V
+
+Else if the wired Arduino is the client
+
+Arduino pin 13 <--> Arduino GND
+
+
+
+Instructions:
+1. Gather two of the following Arduino Mega 2560 Board, joystick, and pushbutton
+
+2. Wire each Arduino according to the above Wiring Instructions
+
+3. Check wiring especially server/client wiring
+
+4. Connect the Arduinos to your computer(s)
+(if you are using one computer use the command <arduino-port-select> to
+ configure your USB ports before using make upload)
+5. Check to make sure you have downloaded the code into a suitable directory
+
+6. Use the command <make upload> to both Arduinos
+
+7. Read How to Play before playing
+
+How to Play:
+Part I: Code Selection
+1. To play first press the pushbutton once.
+2. Move the joystick up and down to select colour
+3. Move the joystick left and right to select circle position
+4. When you are satisfied, with your Colour Code press the pushbutton again.
+
+Part II: Code Guessing
+1. If both pushbuttons have been pressed twice, then your screen will redraw
+   with two 4 x 10 patches of circles.
+2. Move the joystick up and down to select colour
+3. Move the joystick left and right to select circle position
+4. When you are satisfied, with your Colour Code press the pushbutton again
+5. Your guessed code will draw itself at the top of your screen
+   Pay close attention to the grey circles at the top right of your screen
+6. Every red circle means that one of the colours you guessed was the right
+   colour in the right position.  Every white circle means you guessed the
+	 right colour in the wrong position.  If the circles remain grey, then
+	 none of the colours you guessed are in the recieved colour code.
+
+Comments:
+- If you enter an invalid code, you should only have to reset one Arduino
+
+- Only codes with unique colour codes are allowed for for codes you can send, no duplicates!
+
+- However when you try to guess the received code your colour code can contain duplicates
+
+- The reason we decided not to include duplicate guessable codes is because such codes are easy to break
+  making the game less enjoyable
+
