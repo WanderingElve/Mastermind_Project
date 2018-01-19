@@ -5,7 +5,8 @@
 #define _tft_H_
 
 #include <Adafruit_ILI9341.h>
-// purpose of Display is to make tft useable in mulitple files
+// purpose of Display is to make tft variable useable in mulitple files
+// this variable is vital for for the use of Adafruit graphics functions
 class Display{
 	public:
 		static Adafruit_ILI9341 tft;
