@@ -98,7 +98,7 @@ void redrawCircle(int mode,int cursori, colourCode* code) {
 	delay(500);
 }
 
-/* CodeSort has prints one red circle for every correct colour in correct position
+/* CodeSort prints a red circle for every correct colour in correct position
    and one white circle for every correct color in incorrect position.
 */
 //NOTE: Color Codes have four parts, lockcodes are restricted
@@ -183,7 +183,6 @@ void processJoystick(int mode ,int& attempts, int& numred, int& cursori, colourC
 
 	if ((abs(yVal- JOY_CENTER) > JOY_DEADZONE)) {
 
-		// remember the x-reading increases as we push left
 		if ((yVal > JOY_CENTER + JOY_DEADZONE) && code[cursori].colourvali != 7) {
 			(code[cursori].colourvali)++;
 			code[cursori].colourvali = constrain(code[cursori].colourvali,0,7);
@@ -234,7 +233,8 @@ void processJoystick(int mode ,int& attempts, int& numred, int& cursori, colourC
 	}
 }
 
-// Display Mode0: the screen where mycode is created
+// Display Mode0: the screen where mycode- the first inputted code
+// that the will be sent to the second Arduino.
 void displayMode0(int mode, colourCode* code){
 	int cursori = 0;
 	Display::tft.fillScreen(ILI9341_BLACK);
