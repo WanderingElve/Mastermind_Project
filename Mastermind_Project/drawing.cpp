@@ -182,7 +182,8 @@ void processJoystick(int mode ,int& attempts, int& numred, int& cursori, colourC
 	}
 
 	if ((abs(yVal- JOY_CENTER) > JOY_DEADZONE)) {
-
+		
+		// remember the y-reading increases as we push left
 		if ((yVal > JOY_CENTER + JOY_DEADZONE) && code[cursori].colourvali != 7) {
 			(code[cursori].colourvali)++;
 			code[cursori].colourvali = constrain(code[cursori].colourvali,0,7);
@@ -269,17 +270,17 @@ void displayMode0(int mode, colourCode* code){
 // Display Game Menu
 void displayMenu(){
 	Display::tft.fillScreen(ILI9341_BLACK);
-	Display::tft. setCursor(21	, 75);
-	Display::tft. setTextWrap(false);
-	Display::tft. setTextSize(3);
-	Display::tft. setTextColor(ILI9341_WHITE, 0x0000);
-	Display::tft. print("Master Mind");
-	Display::tft. setTextColor(ILI9341_RED, 0x0000);
-	Display::tft. setCursor(30, 100);
-	Display::tft. setTextSize(2);
-	Display::tft. print("(Arduino Style)");
+	Display::tft.setCursor(21	, 75);
+	Display::tft.setTextWrap(false);
+	Display::tft.setTextSize(3);
+	Display::tft.setTextColor(ILI9341_WHITE, 0x0000);
+	Display::tft.print("Master Mind");
+	Display::tft.setTextColor(ILI9341_RED, 0x0000);
+	Display::tft.setCursor(30, 100);
+	Display::tft.setTextSize(2);
+	Display::tft.print("(Arduino Style)");
 	Display::tft.setCursor(24,160);
-	Display::tft. setTextColor(ILI9341_BLUE, 0x0000);
+	Display::tft.setTextColor(ILI9341_BLUE, 0x0000);
 	Display::tft.print("Press the button");
 	Display::tft.setCursor(72,185);
 	Display::tft.print("to begin");
@@ -346,19 +347,19 @@ void displayMode1(int mode,colourCode* code) {
 	// Display GAME OVER screen
 	if (attempts >= 10){
 		Display::tft.fillScreen(ILI9341_MAGENTA);
-		Display::tft. setCursor(12, 75);
-		Display::tft. setTextWrap(false);
-		Display::tft. setTextSize(4);
-		Display::tft. setTextColor(ILI9341_RED, ILI9341_MAGENTA);
+		Display::tft.setCursor(12, 75);
+		Display::tft.setTextWrap(false);
+		Display::tft.setTextSize(4);
+		Display::tft.setTextColor(ILI9341_RED, ILI9341_MAGENTA);
 		Display::tft.print("GAME OVER");
-		Display::tft. setTextSize(2);
-		Display::tft. setCursor(12,150);
-		Display::tft. setTextColor(ILI9341_GREEN, ILI9341_MAGENTA);
+		Display::tft.setTextSize(2);
+		Display::tft.setCursor(12,150);
+		Display::tft.setTextColor(ILI9341_GREEN, ILI9341_MAGENTA);
 		Display::tft.print("Press reset button");
 		Display::tft.setCursor(42,175);
 		Display::tft.print("to play again");
 		Display::tft.setCursor(6,220);
-		Display::tft. setTextColor(ILI9341_BLACK, ILI9341_MAGENTA);
+		Display::tft.setTextColor(ILI9341_BLACK, ILI9341_MAGENTA);
 		Display::tft.print("The secret code was");
 		for (int i = 0; i < 4 ; i++){
 		Display::tft.fillCircle(i*50 + 45,270, 20, code[i].lockcode);
@@ -367,14 +368,14 @@ void displayMode1(int mode,colourCode* code) {
 	// Display YOU WIN screen
 	else {
 		Display::tft.fillScreen(ILI9341_BLUE);
-		Display::tft. setCursor(24, 75);
-		Display::tft. setTextWrap(false);
-		Display::tft. setTextSize(4);
-		Display::tft. setTextColor(ILI9341_ORANGE, ILI9341_BLUE);
+		Display::tft.setCursor(24, 75);
+		Display::tft.setTextWrap(false);
+		Display::tft.setTextSize(4);
+		Display::tft.setTextColor(ILI9341_ORANGE, ILI9341_BLUE);
 		Display::tft.print("YOU WIN!");
-		Display::tft. setTextSize(2);
-		Display::tft. setCursor(12,150);
-		Display::tft. setTextColor(ILI9341_LIGHTGREY, ILI9341_BLUE);
+		Display::tft.setTextSize(2);
+		Display::tft.setCursor(12,150);
+		Display::tft.setTextColor(ILI9341_LIGHTGREY, ILI9341_BLUE);
 		Display::tft.print("Press reset button");
 		Display::tft.setCursor(42,175);
 		Display::tft.print("to play again");
