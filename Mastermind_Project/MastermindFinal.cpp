@@ -11,8 +11,6 @@ An adapted version of these functions is used in this code.
 */
 
 
-//main file for putting it all together
-
 #include <Arduino.h>
 #include <Adafruit_ILI9341.h>
 #include <SPI.h>
@@ -42,7 +40,8 @@ int mode = 0;
 //NOTE: declaration of struct colourCode is in the common.h file
 colourCode code[4];
 
-
+// This code sets up the serial port communication
+// and the pushbuttons
 void setup() {
 	init();
 
